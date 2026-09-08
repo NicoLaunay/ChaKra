@@ -1,54 +1,38 @@
 # ChaKra
 
-This template should help get you started developing with Vue 3 in Vite.
+Application de gestion de feuilles de personnages pour le jeu de rôle
+**Chroniques Oubliées Fantasy** (v1) : création et gestion de personnages,
+PNJ et monstres — caractéristiques, équipement, inventaire, passages de
+niveau, points de vie en cours de partie.
 
-## Recommended IDE Setup
+Projet personnel d'apprentissage. Stack : Vue 3 + TypeScript + Vite.
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## Prérequis
 
-## Recommended Browser Setup
+- Node.js (version indiquée dans `.nvmrc`)
+- npm
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
+## Installation
 
-## Type Support for `.vue` Imports in TS
-
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
-
-```sh
+```bash
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+## Scripts
 
-```sh
-npm run dev
+```bash
+npm run dev          # serveur de développement
+npm run build        # build de production
+npm run type-check   # vérifie le typage
+npm run lint         # analyse le code
+npm run test:unit    # tests unitaires
 ```
 
-### Type-Check, Compile and Minify for Production
+## Architecture
 
-```sh
-npm run build
-```
+Architecture en couches (détails dans `docs/architecture.md`) :
 
-### Run Unit Tests with [Vitest](https://vitest.dev/)
-
-```sh
-npm run test:unit
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+- `src/domain/`      — règles métier COF, TypeScript pur, sans Vue
+- `src/persistence/` — stockage local
+- `src/ui/`          — composants Vue et écrans
+- `src/content/`     — données de jeu (races, voies…), approche data-driven
