@@ -6,6 +6,6 @@ export const DICE_TYPES = {
   D12: {displayName: 'd12'},
   D20: {displayName: 'd20'},
   D100: {displayName: 'd100'},
-}
+} as const
 
 export type DiceType = keyof typeof DICE_TYPES

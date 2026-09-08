@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest'
+import { it, expect } from 'vitest'
 import { formatDamage } from './damage'
 
 it('formate un jet de dégâts', () => {
