@@ -7,34 +7,34 @@ import type { Weapon } from '../combat/weapon'
 import type { Armor } from '../combat/armor'
 
 export interface Entity {
-  readonly name: string
-  readonly level: number
-  readonly type: EntityType
-  readonly size: EntitySize
+  name: string
+  level: number
+  type: EntityType
+  size: EntitySize
 
-  readonly age: number | null
-  readonly weight: number | null
-  readonly sex: Sex
-  readonly race: Race
+  age: number | null
+  weight: number | null
+  sex: Sex
+  race: Race
 
-  readonly copperCoinsNb: number
-  readonly silverCoinsNb: number
-  readonly goldCoinsNb: number
-  readonly platinumCoinsNb: number
-  readonly items: readonly string[]
+  copperCoinsNb: number
+  silverCoinsNb: number
+  goldCoinsNb: number
+  platinumCoinsNb: number
+  items: string[]
 
-  readonly strength: number
-  readonly dexterity: number
-  readonly constitution: number
-  readonly intelligence: number
-  readonly wisdom: number
-  readonly charisma: number
+  strength: number
+  dexterity: number
+  constitution: number
+  intelligence: number
+  wisdom: number
+  charisma: number
 
-  readonly pvMax: number
-  readonly pv: number
+  pvMax: number
+  pv: number
 
-  readonly weapons: readonly Weapon[]
-  readonly armors: readonly Armor[]
+  weapons: Weapon[]
+  armors: Armor[]
 
-  readonly paths: readonly EntityPath[]
+  paths: EntityPath[]
 }
