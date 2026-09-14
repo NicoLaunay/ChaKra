@@ -10,4 +10,10 @@
   --color-secondary-hover: #d3d2d2;
   --color-tertiary: #5a5a5a;
   --color-background: #121212;
+  --color-background-hover: #363636;
+}
+
+html {
+  font-family: var(--font-serif);
+  background-color: var(--color-background);
 }
