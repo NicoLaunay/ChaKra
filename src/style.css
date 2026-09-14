@@ -15,5 +15,6 @@
 
 html {
   font-family: var(--font-serif);
+  color: var(--color-secondary);
   background-color: var(--color-background);
 }
