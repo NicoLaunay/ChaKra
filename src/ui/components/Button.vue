@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, onMounted, ref } from 'vue'
 import { calculatePolygonInsetKnotPoints, calculatePolygon } from './inset-knot.ts'
+import { getElementDimensions } from '../services/element-dimentions.ts'
 
 type Variant = 'primary' | 'secondary' | 'tertiary'
 
@@ -25,11 +26,7 @@ const width = ref(0)
 const height = ref(0)
 
 onMounted(() => {
-  if (buttonRef.value) {
-    const rect = buttonRef.value.getBoundingClientRect()
-    width.value = rect.width
-    height.value = rect.height
-  }
+  ;[width.value, height.value] = getElementDimensions(buttonRef.value)
 })
 
 const strokeWidth = 1.5
