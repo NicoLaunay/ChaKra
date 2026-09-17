@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, onMounted, ref } from 'vue'
 import { calculatePolygonInsetKnotPoints, calculatePolygon } from './inset-knot.ts'
-import { getElementDimensions } from '../services/element-dimentions.ts'
+import { getElementDimensions } from '../../services/element-dimentions.ts'
 
 type Variant = 'primary' | 'secondary' | 'tertiary'
 

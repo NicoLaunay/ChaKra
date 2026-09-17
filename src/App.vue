@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Burger from './ui/components/Burger.vue'
+import Burger from './ui/components/action/Burger.vue'
 </script>
 
 <template>
