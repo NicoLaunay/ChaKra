@@ -44,6 +44,7 @@ defineEmits<{
 <template>
   <button
     ref="buttonRef"
+    type="button"
     class="relative rounded-md font-bold transition-colors text-background font-serif"
     :class="`${variantClasses[props.variant]}`"
     :style="{ clipPath: shape }"
