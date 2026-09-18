@@ -1,29 +1,15 @@
 <script setup lang="ts">
 import { computed, onMounted, onUnmounted, ref } from 'vue'
 import { calculatePolygonInsetKnotPoints } from './action/inset-knot'
-import type { LineCharacter } from './line-character'
+import { LineCharacterBuilder, type LineCharacter } from './line-character'
 import { getElementDimensions } from '../services/element-dimentions'
-
-const defaultCharacter: LineCharacter = {
-  icon: '../assets/app-logo-small.png',
-  name: 'Léorsha Carcinos',
-  profile: 'Guerrière',
-  race: 'Humaine',
-  level: 2,
-}
 
 const props = withDefaults(
   defineProps<{
     character?: LineCharacter
   }>(),
   {
-    character: () => ({
-      icon: '../assets/app-logo-small.png',
-      name: 'Léorsha Carcinos',
-      profile: 'Guerrière',
-      race: 'Humaine',
-      level: 2,
-    }),
+    character: () => new LineCharacterBuilder().build(),
   },
 )
 
