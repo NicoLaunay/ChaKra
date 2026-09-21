@@ -1,15 +1,19 @@
 <script setup lang="ts">
 import { computed, onMounted, onUnmounted, ref } from 'vue'
-import { calculatePolygonInsetKnotPoints } from './action/inset-knot'
+import { calculatePolygonInsetKnotPoints } from '../action/inset-knot'
 import { LineCharacterBuilder, type LineCharacter } from './line-character'
-import { getElementDimensions } from '../services/element-dimentions'
+import { getElementDimensions } from '../../services/element-dimentions'
+
+import defaultIcon from '../../assets/app-logo-small.png'
 
 const props = withDefaults(
   defineProps<{
     character?: LineCharacter
+    icon?: string
   }>(),
   {
     character: () => new LineCharacterBuilder().build(),
+    icon: defaultIcon,
   },
 )
 
@@ -39,7 +43,7 @@ const line = computed(() => calculatePolygonInsetKnotPoints(width.value, height.
 <template>
   <div ref="lineRef" class="relative">
     <div class="flex px-6 py-1 gap-1 justify-between items-center">
-      <img src="../assets/app-logo-small.png" alt="avatar" />
+      <img :src="icon" alt="avatar" />
       <span class="align-middle">{{ character.name }}</span>
       <span class="flex gap-1">
         <span>{{ character.profile }}</span>

@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { useRouter } from 'vue-router'
 import Button from '../components/action/Button.vue'
-import Separator from '../components/Separator.vue'
-import CharacterLine from '../components/CharacterLine.vue'
+import Separator from '../components/display/Separator.vue'
+import CharacterLine from '../components/display/CharacterLine.vue'
 import ToggleButton from '../components/action/ToggleButton.vue'
-import { LineCharacterBuilder, type LineCharacter } from '../components/line-character.ts'
+import { LineCharacterBuilder, type LineCharacter } from '../components/display/line-character.ts'
 import { ref } from 'vue'
 
 const builder = new LineCharacterBuilder()

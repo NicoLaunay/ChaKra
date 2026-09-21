@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
-import { getElementDimensions } from '../services/element-dimentions'
+import { getElementDimensions } from '../../services/element-dimentions'
 
 type Color = 'primary' | 'secondary' | 'tertiary' | 'background'
 
