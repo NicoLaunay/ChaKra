@@ -5,22 +5,32 @@ import Separator from '../components/display/Separator.vue'
 import CharacterLine from '../components/display/CharacterLine.vue'
 import ToggleButton from '../components/action/ToggleButton.vue'
 import { LineCharacterBuilder, type LineCharacter } from '../components/display/line-character.ts'
-import { ref } from 'vue'
+import { usePlayerCharactersStore } from '@/ui'
+import { computed, ref, type Ref } from 'vue'
+import { storeToRefs } from 'pinia'
 
-const builder = new LineCharacterBuilder()
+// STORE
+const store = usePlayerCharactersStore()
+const { lineCharacters } = storeToRefs(store) // values
+const { initiate } = store // functions
+initiate()
 
 const router = useRouter()
 
-const userName = 'Nom Utilisateur'
-const myCharacters: LineCharacter[] = [builder.build(), builder.build(), builder.build()]
-const otherCharacters: LineCharacter[] = [builder.build(), builder.build(), builder.build()]
+const userName = 'Nico'
+const myCharacters: Ref<LineCharacter[]> = computed(() =>
+  lineCharacters.value.filter((character) => character.player == userName),
+)
+const otherCharacters: Ref<LineCharacter[]> = computed(() =>
+  lineCharacters.value.filter((character) => character.player != userName),
+)
+
+const displayMyCharacters = ref(true)
+const displayOtherCharacters = ref(true)
 
 function goTo(route: string) {
   router.push(route)
 }
-
-const displayMyCharacters = ref(true)
-const displayOtherCharacters = ref(true)
 </script>
 
 <template>
